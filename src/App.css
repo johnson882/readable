@@ -1,6 +1,16 @@
 .App {
-  text-align: center;
+  margin: 5vw;
+  text-align: left;
+  width: 100vw;
+  height: 100vh;
 }
+textarea{
+  width: 90vw;
+}
+.article{
+  min-height: 200px;
+}
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

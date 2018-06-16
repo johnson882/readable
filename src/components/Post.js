@@ -1,15 +1,46 @@
+import '../App.css';
 
 import React from 'react';
+//import store from '../reducers/'
 import { connect } from 'react-redux';
 
-function Post(props){ console.log('render', props)
+function onSubmit(val){
+        debugger;
+    }
+
+function Post(props){
+
+  console.log('render', props)
+  //const { onSubmit } = this.props
   return (
     <div>
-      <h1>Posts! </h1>
-      <h2>A post Title </h2>
-      <p>postID: {props.postID}</p>
-      <button onClick={props.onAddToStateClick}>Submit post</button>
+    <h1> Submit a post!</h1>
+    <form onSubmit={ (e)=> {onSubmit}  }>
+    <div>
+      <p>Title:</p>
+      <textarea type="text" />
     </div>
+    <br/>
+    <article>
+      <p>Article:</p>
+      <textarea class="article" type="text"/>
+    </article>
+    <p>Author:</p>
+    <textarea type="text" />
+
+
+    <input type="submit" value="Submit" />
+    </form>
+
+
+
+
+    </div>
+
+
+
+
+
 
   )
 
@@ -29,6 +60,8 @@ function mapDispatchToProps(dispatch){
     const action = {type: 'SUBMIT'};
     dispatch(action);
   }
+
+
 
   }
 }

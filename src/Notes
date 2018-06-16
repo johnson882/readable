@@ -1,0 +1,13 @@
+<h1>Posts! </h1>
+<h2>A post Title </h2>
+
+<p>postID: {props.postID}</p>
+
+<button onClick={props.onAddToStateClick}>Submit post</button>
+
+console.log('mapStateToProps', state);
+  return {
+    postID: state.postID // PostID: is the property passed into props
+  }
+
+  //post id counter component
