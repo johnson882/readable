@@ -1,13 +1,20 @@
-import { createStore } from 'redux';
-
+import { createStore, combineReducers } from 'redux';
+import {reducer as formReducer} from 'redux-form'
 //initial state - to change later as state changes
-const initialState = {
-  postID: 25
+const initialStateTest = {
+  postID: 45
 
 };
 
+const InitialStatePost = {
+Title: '',
+Body: '',
+Author: '',
+
+}
+
 // sets initial state to current state first time its called only
-const reducer = (state = initialState, action) => {
+const testReducer = (state = initialStateTest, action) => {
   console.log('reducer running', action);
   switch(action.type){
     case 'SUBMIT':
@@ -23,6 +30,10 @@ const reducer = (state = initialState, action) => {
 
 }
 
-const store = createStore(reducer); // create store
+const form = (state = InitialStatePost, action) => {
+  console.log('reducer form running', action)
+}
+
+const store = createStore(combineReducers({testReducer, form: formReducer}), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()); // create store
 
 export default store; // exports the store to other componr
