@@ -20,6 +20,11 @@ let PostForm = props => {
         <Field name="author" component="textarea" type="text" />
       </div>
       <br/>
+      <div>
+        <label htmlFor="Category">Category</label>
+        <Field name="category" component="input" type="text" />
+      </div>
+      <br/>
       <button type="submit">Submit</button>
     </form>
   )
