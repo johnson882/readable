@@ -4,9 +4,16 @@ import PostForm from './form'
 class CreatePost extends React.Component {
   submit = values => {
     // print the form values to the console
-    console.log(values)
-    //alert('Title:'+ values.body);
-    savePost(values)
+
+    alert(values.category)
+
+const post = {
+  title: values.title,
+  body: values.body,
+  author: values.author,
+  category: values.category
+}
+
   }
 
   // savePost action
