@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { savePost} from '../actions/actions'
 import PostForm from './form'
 
 class CreatePost extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {title: '', body: '', author:'', category: ''}
+  }
+
+
+
   submit = values => {
     // print the form values to the console
-
+  //  values.preventDefualt();
     alert(values.category)
 
 const post = {
@@ -14,6 +24,7 @@ const post = {
   category: values.category
 }
 
+this.props.savePost(post);
   }
 
   // savePost action
