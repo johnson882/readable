@@ -1,18 +1,23 @@
-import {SAVE_POST, FETCH_POSTS} from './types.js'
+import {SAVE_POST, FETCH_POSTS} from './types'
+import axios from '../components/axios'
+const uuidv4 = require('uuid/v4');
 
 
-export const savePost = () => dispatch => {
+
+export const savePost = ({title, body, author, category})  =>({
+  type: SAVE_POST,
+  payload: axios.post('/posts', {
+    id: uuidv4(),
+    timestamp: Date.now(),
+    title, body, author, category,
+  } ).then(console.log('savePost')).then(res => console.log(res.data)),
   //const { title, body, author, category } = values;
-  fetch('http://localhost:3001/posts', { headers: { 'Authorization': 'whatever-you-want' }})
-  .then(res => res.json()).then(data => dispatch({
-    type: SAVE_POST,
-    payload: posts
-  }));
+
+})
 
 
-};
 
-export const fetchPost = () => pData=>dispatch => {
+export const fetchPost = () => pData=> dispatch => {
 
 
 }

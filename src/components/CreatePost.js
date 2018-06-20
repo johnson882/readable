@@ -25,6 +25,7 @@ const post = {
 }
 
 this.props.savePost(post);
+
   }
 
   // savePost action
@@ -54,15 +55,5 @@ const mapDispatchToProps(dispatch){
 export default connect(mapStateToProps,mapDispatchToProps)(CreatePost)
 */
 
-export const savePost = ({ title, body, author}) => ({
-
-  payload: ( {
-
-    timestamp: Date.now(),
-    title,
-    body,
-    author,
-
-  })
-})
-export default CreatePost
+export default connect(null, { savePost})(CreatePost);
+//export default CreatePost
