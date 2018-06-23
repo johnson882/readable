@@ -13,9 +13,6 @@ class CreatePost extends React.Component {
 
 
   submit = values => {
-    // print the form values to the console
-  //  values.preventDefualt();
-    alert(values.category)
 
 const post = {
   title: values.title,
@@ -25,7 +22,7 @@ const post = {
 }
 
 this.props.savePost(post);
-
+//dispatch(post)
   }
 
   // savePost action
@@ -39,21 +36,18 @@ this.props.savePost(post);
 const mapStateToProps(state){
   return{}
 };
-
-const mapDispatchToProps(dispatch){
-  return{
-    addPost: (values) => {
-      dispatch({
-        type: "addPost",
-        payload: values
-      });
-    }
-
-  };
-};
-
-export default connect(mapStateToProps,mapDispatchToProps)(CreatePost)
 */
 
-export default connect(null, { savePost})(CreatePost);
+
+function mapDispatchToProps(dispatch) {
+  return {
+    savePost: (post) => dispatch({type: 'SAVE_POST', payload: post}),
+  }
+};
+
+
+//export default connect(null,mapStateToProps)(CreatePost)
+
+
+export default connect(null, mapDispatchToProps)(CreatePost);
 //export default CreatePost
