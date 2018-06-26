@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { savePost} from '../actions/actions'
+import { savePost } from '../actions/actions'
 import PostForm from './form'
 
 class CreatePost extends React.Component {
@@ -21,7 +21,7 @@ const post = {
   category: values.category
 }
 
-this.props.savePost(post);
+console.log(this.props.savePost(post));
 //dispatch(post)
   }
 
@@ -49,5 +49,5 @@ function mapDispatchToProps(dispatch) {
 //export default connect(null,mapStateToProps)(CreatePost)
 
 
-export default connect(null, mapDispatchToProps)(CreatePost);
+export default connect(null, {savePost})(CreatePost);
 //export default CreatePost
