@@ -49,5 +49,5 @@ function mapDispatchToProps(dispatch) {
 //export default connect(null,mapStateToProps)(CreatePost)
 
 
-export default connect(null, mapDispatchToProps)(CreatePost);
+export default connect(null, {savePost})(CreatePost);
 //export default CreatePost
