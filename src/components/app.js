@@ -11,13 +11,14 @@ class App extends Component {
     return (
       <div className="App">
         <BrowserRouter>
-        
-        <Switch>
+        <div>
+  <Link to="/newpost">New Post</Link>
 
-        <Route exact path='/' component={CreatePost} />
 
-        </Switch>
+        <Route exact path='/newpost' component={CreatePost} />
+        <Route exact path='/' component={Post} />
 
+        </div>
         </BrowserRouter>
       </div>
     );

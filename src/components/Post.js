@@ -1,41 +1,40 @@
 import '../App.css';
 
-import React from 'react';
+import React , { Component } from 'react';
 //import store from '../reducers/'
 import { connect } from 'react-redux';
+import {fetchPosts} from '../actions/actions'
 
-function onSubmit(val){
-        debugger;
-    }
 
-function Post(props){
+class Post extends React.Component{
+  constructor(props) {
+    super(props);
+  }
 
-  console.log('render', props)
+  componentWillMount(){
+    this.props.fetchPosts();
+    
+  }
+
+//  console.log('render', props)
   //const { onSubmit } = this.props
-  return (
-    <div>
-    <h1> Submit a post!</h1>
-    <form onSubmit={ (e)=> {onSubmit}  }>
-    <div>
-      <p>Title:</p>
-      <textarea type="text" />
-    </div>
+render(){
+  const postItems = this.props.postReducer.slice(0).reverse().map(post => (
+    <div key={post.id}>
+    <h1>{post.title} </h1>
+    <p> {post.body} </p>
+    -----------------------------
+    <p> Author:{post.author}</p>
+    <p> Category: {post.category}</p>
     <br/>
-    <article>
-      <p>Article:</p>
-      <textarea class="article" type="text"/>
-    </article>
-    <p>Author:</p>
-    <textarea type="text" />
-
-
-    <input type="submit" value="Submit" />
-    </form>
-
-
-
-
     </div>
+
+  ))
+
+  return (
+  <div>
+  {postItems}
+  </div>
 
 
 
@@ -43,13 +42,13 @@ function Post(props){
 
 
   )
-
+}
 }
 
 function mapStateToProps(state){
 console.log('mapStateToProps', state);
   return {
-    postID: state.postID // PostID: is the property passed into props
+    postReducer: state.postReducer.posts // PostID: is the property passed into props
   }
 }
 
@@ -65,5 +64,5 @@ function mapDispatchToProps(dispatch){
 
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Post); // wrap our commponent with the one
+export default connect(mapStateToProps, {fetchPosts})(Post); // wrap our commponent with the one
 //created by connect component and glues/adds/combines mapStateToProps to it.

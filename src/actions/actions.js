@@ -30,7 +30,8 @@ export const savePost = ({title, body, author, category}) => dispatch =>({
 
 
 
-export const fetchPost = () => pData=> dispatch => {
 
-
-}
+export const fetchPosts = () => dispatch => ({
+  type: FETCH_POSTS,
+  payload: axios.get('/posts').then(res => dispatch({type: 'FETCH_POSTS', payload: res.data}))
+})
