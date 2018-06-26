@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+=======
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+>>>>>>> 739405f23e3725aa60fee31677c7943ef2a33059
 import thunk from 'redux-thunk'
 import {SAVE_POST, FETCH_POSTS} from '../actions/types'
 import {reducer as formReducer} from 'redux-form'
@@ -10,28 +14,37 @@ const initialStateTest = {
 };
 
 const initialStatePost = {
-  items: [],
-    item: {}
+  posts: []
+   //  item: {}
 }
 
 const middleware = [thunk];
 // sets initial state to current state first time its called only
 
 const postReducer = (state = initialStatePost, action) => {
+<<<<<<< HEAD
   //console.log('reducer running', action.payload);
   //alert('Reached save post!')
+=======
+  //console.log('reducer running', action);
+>>>>>>> 739405f23e3725aa60fee31677c7943ef2a33059
   switch(action.type){
     case 'SUBMIT':
       return Object.assign({}, state, {postID: state.postID + 1}) // first creates new object and copys state
       // to new object, then overides state content with postID + 1, incrementing the PostId by 1, Later add
       //all the PostId information Header, Body, ect...
 
+<<<<<<< HEAD
     case `${SAVE_POST}`:
     alert('Reached save post fullfilled!')
     console.log()
+=======
+    case 'SAVE_POST':
+    alert('Reached save post!')
+    console.log("reached save: ", action.payload)
+>>>>>>> 739405f23e3725aa60fee31677c7943ef2a33059
     return {
-      ...state,
-      item: action.payload
+      ...state, posts: state.posts.concat(action.payload)
     };
 
       default:

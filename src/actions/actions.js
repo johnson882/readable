@@ -16,14 +16,14 @@ function savePostStore(data) {
 
 
 
-export const savePost = ({title, body, author, category})  =>({
+export const savePost = ({title, body, author, category}) => dispatch =>({
 
   type: SAVE_POST,
   payload: axios.post('/posts', {
     id: uuidv4(),
     timestamp: Date.now(),
     title, body, author, category,
-  } ).then(res => ((res.data))),
+  } ).then(res => (dispatch({type: 'SAVE_POST', payload: res.data}))),
   //const { title, body, author, category } = values;
 
 })
