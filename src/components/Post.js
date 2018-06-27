@@ -13,13 +13,13 @@ class Post extends React.Component{
 
   componentWillMount(){
     this.props.fetchPosts();
-    
+
   }
 
 //  console.log('render', props)
   //const { onSubmit } = this.props
 render(){
-  const postItems = this.props.postReducer.slice(0).reverse().map(post => (
+  const postItems = this.props.postReducer.map(post => (
     <div key={post.id}>
     <h1>{post.title} </h1>
     <p> {post.body} </p>
