@@ -19,7 +19,8 @@ class Post extends React.Component{
 //  console.log('render', props)
   //const { onSubmit } = this.props
 render(){
-  const postItems = this.props.postReducer.map(post => (
+  console.log("this is the post reducer:", this.props.postReducer)
+  const postItems = this.props.posts.map(post => (
     <div key={post.id}>
     <h1>{post.title} </h1>
     <p> {post.body} </p>
@@ -48,7 +49,8 @@ render(){
 function mapStateToProps(state){
 console.log('mapStateToProps', state);
   return {
-    postReducer: state.postReducer.posts // PostID: is the property passed into props
+    posts: state.posts.items // PostID: is the property passed into props
+
   }
 }
 

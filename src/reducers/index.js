@@ -7,10 +7,12 @@ import {reducer as formReducer} from 'redux-form'
 
 
 const initialStatePost = {
-  posts: []
+  items: []
    //  item: {}
 }
 
+
+const initialState = {};
 const middleware = [thunk];
 // sets initial state to current state first time its called only
 
@@ -22,14 +24,15 @@ const postReducer = (state = initialStatePost, action) => {
       // to new object, then overides state content with postID + 1, incrementing the PostId by 1, Later add
       //all the PostId information Header, Body, ect...
       case 'FETCH_POSTS': return{
-        ...state, posts: action.payload
+        ...state, items: action.payload
       }
 
     case 'SAVE_POST':
     alert('Reached save post!')
     console.log("reached save: ", action.payload)
     return{
-      ...state, posts: state.posts.concat(action.payload)
+      ...state, items: state.items.concat(action.payload)
+  //  ...state, posts: [...state].unshift(action.payload)
     };
 
       default:
@@ -50,6 +53,6 @@ const form = (state = InitialStatePost, action) => {
 
 } */
 
-const store = createStore(combineReducers({postReducer,  form: formReducer }),compose( applyMiddleware(...middleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())); // create store
+const store = createStore(combineReducers({posts: postReducer,  form: formReducer }), initialState,compose( applyMiddleware(...middleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())); // create store
 
 export default store; // exports the store to other componr
