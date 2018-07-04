@@ -16,11 +16,13 @@ class Post extends React.Component{
 
   }
 
+
+
 //  console.log('render', props)
   //const { onSubmit } = this.props
 render(){
   console.log("this is the post reducer:", this.props.postReducer)
-  const postItems = this.props.posts.map(post => (
+  const postItems = [].concat(this.props.posts).sort((a,b) => a.timestamp < b.timestamp).map(post => (
     <div key={post.id}>
     <h1>{post.title} </h1>
     <p> {post.body} </p>
