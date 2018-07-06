@@ -53,6 +53,6 @@ const form = (state = InitialStatePost, action) => {
 
 } */
 
-const store = createStore(combineReducers({posts: postReducer,  form: formReducer }), initialState,compose( applyMiddleware(...middleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())); // create store
+const store = createStore(combineReducers({posts: postReducer,  form: formReducer }), initialState, compose( applyMiddleware(...middleware), window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : compose )); // create store
 
 export default store; // exports the store to other componr
