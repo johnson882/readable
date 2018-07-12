@@ -6,10 +6,8 @@ import { connect } from 'react-redux';
 import {fetchPosts} from '../actions/actions'
 
 
-class Post extends React.Component{
-  constructor(props) {
-    super(props);
-  }
+class Post extends Component{
+  
 
   componentWillMount(){
     this.props.fetchPosts();

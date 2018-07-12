@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { savePost } from '../actions/actions'
 import PostForm from './form'
 
-class CreatePost extends React.Component {
+class CreatePost extends Component {
   constructor(props) {
     super(props);
 

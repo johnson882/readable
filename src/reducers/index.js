@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk'
-import {SAVE_POST, FETCH_POST} from '../actions/types'
+//import {SAVE_POST, FETCH_POST} from '../actions/types'
 import {reducer as formReducer} from 'redux-form'
 
 //initial state - to change later as state changes
